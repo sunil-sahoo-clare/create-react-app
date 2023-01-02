@@ -32,3 +32,5 @@ jobs:
           VERSION=$(cat VERSION)
           DOCKER_TAG_FULL=(${VERSION}_${short_id}_${{ github.run_number }})
           docker tag ${{ env.IMG_NAME }}:${{env.TAG}} ${{ env.IMG_NAME }}:${DOCKER_TAG_FULL}
+      - name: ls
+        run: docker images
