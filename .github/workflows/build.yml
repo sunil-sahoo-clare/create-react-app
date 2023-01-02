@@ -28,6 +28,8 @@ jobs:
           semantic_version: 15.13.28
       # you can set branch for semantic-release older than v16.
           branch: 'main'
+        env:
+          GITHUB_TOKEN: "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"
           
       - name: docker
         run: docker build . --file Dockerfile --tag ${{ env.IMG_NAME }}:${{env.TAG}}
