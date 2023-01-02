@@ -25,9 +25,11 @@ jobs:
       - name: Semantic Release
         uses: cycjimmy/semantic-release-action@v3
         with:
-          semantic_version: 15.13.28
-      # you can set branch for semantic-release older than v16.
+          semantic_version: 2.0.0
           branch: 'main'
+      
+      # you can set branch for semantic-release older than v16.
+          
         env:
           GITHUB_TOKEN: "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"
           
