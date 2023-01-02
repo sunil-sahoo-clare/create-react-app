@@ -15,8 +15,7 @@ jobs:
           node-version: 16
           cache: 'npm'
 
-      - name: Build Frontend
+      - name: Build
         run: |
-          cd chat
           npm install --force
           npm run build
