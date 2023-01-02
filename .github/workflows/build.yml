@@ -29,8 +29,9 @@ jobs:
       - name: Tag
         run: |
           short_id=$(echo ${{github.run_id}} | cut -c 1-6)
+          commit_id=$(echo ${{github.commit_id}} | cut -c 1-8)
           VERSION=$(cat VERSION)
-          DOCKER_TAG_FULL=(${VERSION}_${short_id}_${{ github.run_number }})
+          DOCKER_TAG_FULL=(${VERSION}_${commit_id}_${short_id}_${{ github.run_number }})
           docker tag ${{ env.IMG_NAME }}:${{env.TAG}} ${{ env.IMG_NAME }}:${DOCKER_TAG_FULL}
       - name: ls
         run: docker images
