@@ -1,0 +1,22 @@
+name: react
+on:
+  push:
+    branches:
+      - 'main'
+      
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node
+        uses: actions/setup-node@v3.0.0
+        with:
+          node-version: 16
+          cache: 'npm'
+
+      - name: Build Frontend
+        run: |
+          cd chat
+          npm install --force
+          npm run build
