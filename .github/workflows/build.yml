@@ -19,7 +19,7 @@ jobs:
           cache: 'npm'
           
       - name: npm install
-        run: npm insatll --force
+        run: npm install --force
 
       - name: Debug
         run: |
