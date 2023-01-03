@@ -36,15 +36,17 @@ jobs:
         env:
           GITHUB_TOKEN: "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"
           
-      - name: docker
-        run: docker build . --file Dockerfile --tag ${{ env.IMG_NAME }}:${{env.TAG}}
-        
-      - name: Tag
+      - uses: actions/checkout@v2
+      - uses: haya14busa/action-update-semver@v1
+        id: version
+        with:
+          major_version_tag_only: true
+          
+      
+      - name: Build image
         run: |
-          short_id=$(echo ${{github.run_id}} | cut -c 1-6)
-          commit_id=$(echo ${{github.commit_id}} | cut -c 1-8)
-          VERSION=$(cat VERSION)
-          DOCKER_TAG_FULL=(${VERSION}_${commit_id}_${short_id}_${{ github.run_number }})
-          docker tag ${{ env.IMG_NAME }}:${{env.TAG}} ${{ env.IMG_NAME }}:${DOCKER_TAG_FULL}
+          tag_v=$(git describe --tags $(git rev-list --tags --max-count=1))
+          tag=$(echo $tag_v | sed 's/v//')
+          docker build -t react_${tag} .
       - name: ls
         run: docker images
