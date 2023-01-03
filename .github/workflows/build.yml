@@ -19,7 +19,9 @@ jobs:
           cache: 'npm'
           
       - name: npm install
-        run: npm install --force
+        run: | 
+          npm install --force
+          npm run build
 
       - name: Debug
         run: |
