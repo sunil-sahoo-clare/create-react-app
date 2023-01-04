@@ -17,12 +17,17 @@ jobs:
         with:
           node-version: 16
           cache: 'npm'
+      - uses: actions/github-script@v3
+        with:
+          github-token: "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"
           
       - name: npm install
         run: | 
           npm install --force
           npx semantic-release
           npm run build
+      
+          
 
       - name: Debug
         run: |
