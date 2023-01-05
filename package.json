@@ -19,7 +19,7 @@
   },
   "release": {
   "getLastRelease": "last-release-apm"
-  }
+  },
   "eslintConfig": {
     "extends": [
       "react-app",
