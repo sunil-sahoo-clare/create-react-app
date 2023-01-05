@@ -30,7 +30,7 @@ jobs:
      
       - name: npm install
         run: | 
-          npm install --save-dev semantic-release --force
+          npm install --force
           npm run build
           npx semantic-release
       - name: version
