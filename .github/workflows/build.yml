@@ -32,6 +32,7 @@ jobs:
         run: | 
           npm install --save-dev semantic-release --force
           npm run build
+          npx semantic-release
       - name: version
         run: |
           echo ${{ steps.versioning.outputs.version }}  >> version.txt
