@@ -17,6 +17,9 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "release": {
+  "getLastRelease": "last-release-apm"
+  }
   "eslintConfig": {
     "extends": [
       "react-app",
